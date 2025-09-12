@@ -2,17 +2,18 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Three.js test</title>
+  <title>Three.js test funkční</title>
   <style>
     body { margin: 0; overflow: hidden; }
     canvas { display: block; }
   </style>
 </head>
 <body>
-  <script type="module">
-    import * as THREE from "https://unpkg.com/three@0.152.2/build/three.module.js";
-    import { OrbitControls } from "https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js";
-
+  <!-- Tady bereme starší build three.js, kde OrbitControls funguje -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/examples/js/controls/OrbitControls.js"></script>
+  
+  <script>
     // Scéna
     const scene = new THREE.Scene();
 
@@ -31,8 +32,8 @@
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
-    // Ovládání myší
-    const controls = new OrbitControls(camera, renderer.domElement);
+    // OrbitControls funguje u této verze
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
     // Animace
     function animate() {
