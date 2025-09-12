@@ -9,9 +9,10 @@
   </style>
 </head>
 <body>
-  <!-- Three.js a OrbitControls z verze 0.148.0 -->
+  <!-- Three.js (legacy non-module build) -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/examples/js/controls/OrbitControls.min.js"></script>
+  <!-- OrbitControls (přidává globální "OrbitControls") -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/examples/js/controls/OrbitControls.js"></script>
   
   <script>
     // Scéna
@@ -32,8 +33,8 @@
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
-    // OrbitControls (u této verze funguje s "new")
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // OrbitControls (pozor: už ne přes THREE, ale přímo)
+    const controls = new OrbitControls(camera, renderer.domElement);
 
     // Animace
     function animate() {
