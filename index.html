@@ -2,18 +2,17 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Three.js test bez importu</title>
+  <title>Three.js test</title>
   <style>
     body { margin: 0; overflow: hidden; }
     canvas { display: block; }
   </style>
 </head>
 <body>
-  <!-- Natáhneme knihovnu přímo jako <script> -->
-  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-  <script src="https://unpkg.com/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
-  
-  <script>
+  <script type="module">
+    import * as THREE from "https://unpkg.com/three@0.152.2/build/three.module.js";
+    import { OrbitControls } from "https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js";
+
     // Scéna
     const scene = new THREE.Scene();
 
@@ -33,7 +32,7 @@
     scene.add(cube);
 
     // Ovládání myší
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    const controls = new OrbitControls(camera, renderer.domElement);
 
     // Animace
     function animate() {
